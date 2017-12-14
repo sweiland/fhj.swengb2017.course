@@ -24,5 +24,11 @@ class MazeMarshallerSpec extends WordSpecLike {
       assert(pos.width == actual.getHeight)
       assert(pos.height == actual.getWidth)
     }
+    ".convert(cell : Cell" in {
+      val cell = Cell(Pos(4711, 815), Coord(2, 3), Rect(4711, 815))
+      val expected = MazeProtocol.convert(cell)
+
+      assert(cell.pos.x == expected.getPos.getX)
+    }
   }
 }

@@ -16,7 +16,8 @@ object MazeProtocol {
   def convert(cellRect: Rect): MazeProtobuf.Rect = MazeProtobuf.Rect.newBuilder().setWidth(cellRect.height).setHeight(cellRect.width).build()
 
   def convert(cell: Cell): MazeProtobuf.Cell = MazeProtobuf.Cell
-    .newBuilder().build
+    .newBuilder()
+    .build
 
   /**
     * Provided a protobuf encoded maze, create a business model class 'maze' again
