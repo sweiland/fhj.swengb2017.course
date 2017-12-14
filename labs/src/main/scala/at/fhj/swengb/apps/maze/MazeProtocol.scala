@@ -11,6 +11,13 @@ object MazeProtocol {
 
   def convert(pos: MazeProtobuf.Pos): Pos = Pos(MazeProtobuf.Pos.X_FIELD_NUMBER, MazeProtobuf.Pos.Y_FIELD_NUMBER)
 
+  def convert(end: Pos): MazeProtobuf.Pos = MazeProtobuf.Pos.newBuilder().setX(end.x).setY(end.y).build()
+
+  def convert(cellRect: Rect): MazeProtobuf.Rect = MazeProtobuf.Rect.newBuilder().setWidth(cellRect.height).setHeight(cellRect.width).build()
+
+  def convert(cell: Cell): MazeProtobuf.Cell = MazeProtobuf.Cell
+    .newBuilder().build
+
   /**
     * Provided a protobuf encoded maze, create a business model class 'maze' again
     */
@@ -46,13 +53,6 @@ object MazeProtocol {
       .build()
     pMaze
   }
-
-  def convert(end: Pos): MazeProtobuf.Pos = MazeProtobuf.Pos.newBuilder().setX(end.x).setY(end.y).build()
-
-  def convert(cellRect: Rect): MazeProtobuf.Rect = MazeProtobuf.Rect.newBuilder().setWidth(cellRect.height).setHeight(cellRect.width).build()
-
-  def convert(cell: Cell): MazeProtobuf.Cell = MazeProtobuf.Cell
-    .newBuilder().build
 
 
 }
